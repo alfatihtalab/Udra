@@ -1,0 +1,35 @@
+{
+  "advertisements": [
+    {
+      "id": "ad1",
+      "title": "New Course of ML",
+      "description": "this is simple description of the course",
+      "date": "01-12-2021",
+      "duration": "30 hours",
+      "courseImage": "assets/course_pic/",
+      "information": [
+        "Course: Main Course",
+        "Price: Cheap",
+        "Cuisine: Meditarrian",
+        "Skill Level: Beginner",
+        "Prep Time 5 minutes"
+      ]
+    },
+    {
+      "id": "ad1",
+      "title": "New Course of ML",
+      "description": "this is simple description of the course",
+      "date": "01-12-2021",
+      "duration": "30 hours",
+      "courseImage": "assets/course_pic/",
+      "information": [
+        "Course: Main Course",
+        "Price: Cheap",
+        "Cuisine: Meditarrian",
+        "Skill Level: Beginner",
+        "Prep Time 5 minutes"
+      ]
+    }
+  ]
+}
+
