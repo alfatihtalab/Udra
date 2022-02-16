@@ -15,7 +15,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   http: ^0.13.4
-  google_fonts: ^2.1.0
+  google_fonts: ^2.3.1
   shared_preferences: ^2.0.9
   provider: ^6.0.1
   get: ^4.6.1
@@ -117,6 +117,7 @@ flutter:
     - assets/sample_data/
     - assets/onboarding/
     - assets/news/
+    - assets/translations/
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a

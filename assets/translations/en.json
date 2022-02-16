@@ -1,0 +1,25 @@
+{
+  "title": "UDRA",
+  "home": "Home",
+  "settings": "Settings",
+  "language": "Language",
+  "dark_mode": "Dark mode",
+  "logout": "Logout",
+  "guest": "Guest",
+  "news": "News",
+  "events_text": "Events",
+  "about_us": "About us",
+  "ads_title": "Advertisement",
+  "location": "Location",
+  "about_udra":"About UDRA",
+  "services": "Services",
+  "general": "General",
+  "students": "Students",
+  "kids": "Kids",
+  "udra_cloud": "UDRA Cloud",
+  "special_services": "Special Services",
+  "contact_us": "Contact us",
+  "language_text_en": "English",
+  "language_text_ar": "Arabic"
+
+}

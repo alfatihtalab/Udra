@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_hosham_app/api/mock_app_service.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_hosham_app/controller/user_controller.dart';
 import 'package:flutter_hosham_app/screens/home/home_page.dart';
 import 'package:flutter_hosham_app/screens/onboarding/onboarding_screen.dart';
 import 'package:flutter_hosham_app/storage/persistence.dart';
+import 'package:flutter_hosham_app/generated//codegen_loader.g.dart';
 import 'package:flutter_hosham_app/theme_app.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,8 +24,17 @@ void main() async {
   userController = UserController(persistence);
   themeController = ThemeController(persistence);
   themeController.getCurrentTheme();
+  await EasyLocalization.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((value) => runApp(const MyApp()));
+      .then((value) => runApp(
+            EasyLocalization(
+                supportedLocales: const [Locale('en'), Locale('ar')],
+                path:
+                    'assets/translations', // <-- change the path of the translation files
+                assetLoader: CodegenLoader(),
+                fallbackLocale: Locale('en'),
+                child: const MyApp()),
+          ));
 }
 
 class MyApp extends StatefulWidget {
@@ -53,6 +64,9 @@ class _MyAppState extends State<MyApp> {
           } else {
             return GetMaterialApp(
               debugShowCheckedModeBanner: false,
+              localizationsDelegates: context.localizationDelegates,
+              supportedLocales: context.supportedLocales,
+              locale: context.locale,
               home: const LoadingPage(),
               theme: themeController.theme,
               darkTheme: themeController.theme,

@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hosham_app/components/home/services_components/service_thumbnail.dart';
+import 'package:flutter_hosham_app/generated/locale_keys.g.dart';
 import 'package:flutter_hosham_app/models/udra_service.dart';
 import 'package:flutter_hosham_app/screens/sub_services_screen/sub_services_list.dart';
 import 'package:get/get.dart';
@@ -26,7 +28,7 @@ class ServicesGridView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // 5
-          Text('Services', style: Theme.of(context).textTheme.headline2),
+          Text(LocaleKeys.services, style: Theme.of(context).textTheme.headline2).tr(),
           // 6
           const SizedBox(height: 16),
           // 7

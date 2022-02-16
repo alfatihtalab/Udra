@@ -1,8 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hosham_app/components/cards/material_card.dart';
 import 'package:flutter_hosham_app/components/circular_image.dart';
 import 'package:flutter_hosham_app/components/home/news/news_list_views.dart';
 import 'package:flutter_hosham_app/controller/theme_controller.dart';
+import 'package:flutter_hosham_app/generated/codegen_loader.g.dart';
+import 'package:flutter_hosham_app/generated/locale_keys.g.dart';
 import 'package:flutter_hosham_app/screens/about_screen.dart';
 import 'package:flutter_hosham_app/screens/auth/login.dart';
 import 'package:flutter_hosham_app/theme_app.dart';
@@ -63,15 +66,15 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   Expanded(child: CircleImage(name: 'Guest')),
                   Text(
-                    'Guest',
+                    LocaleKeys.guest,
                     style: DemoTheme.darkTextTheme.headline2,
-                  ),
+                  ).tr(),
                 ],
               ),
             ),
             ListTile(
               leading: const Icon(Icons.settings),
-              title: const Text('Setting'),
+              title: Text(LocaleKeys.title).tr(),
               onTap: () {
                 // Update the state of the app.
                 // ...
@@ -79,22 +82,23 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: const Icon(Icons.translate),
-              title: const Text('Language'),
+              title: const Text(LocaleKeys.language).tr(),
               onTap: () {
+                showLanguageDialoug();
                 // Update the state of the app.
                 // ...
-                final snackBar = SnackBar(
-                  behavior: SnackBarBehavior.floating,
-                  content: Text('Coming soon ...'),
-                  action: SnackBarAction(
-                    label: 'Action',
-                    onPressed: () {},
-                  ),
-                );
+                // final snackBar = SnackBar(
+                //   behavior: SnackBarBehavior.floating,
+                //   content: Text('Coming soon ...'),
+                //   action: SnackBarAction(
+                //     label: 'Action',
+                //     onPressed: () {},
+                //   ),
+                // );
 
                 // Find the Scaffold in the widget tree and use
                 // it to show a SnackBar.
-                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                // ScaffoldMessenger.of(context).showSnackBar(snackBar);
               },
             ),
             ListTile(
@@ -102,7 +106,7 @@ class _HomePageState extends State<HomePage> {
               title: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text('Dark mode'),
+                  const Text(LocaleKeys.dark_mode).tr(),
                   Switch(
                       value: isDark,
                       onChanged: (v) {
@@ -121,7 +125,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: const Icon(Icons.exit_to_app),
-              title: const Text('Logout'),
+              title: Text(LocaleKeys.logout).tr(),
               onTap: () {
                 // Update the state of the app.
                 // ...
@@ -133,7 +137,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       appBar: AppBar(
-        title: const Text('UDRA'),
+        title: Text(LocaleKeys.title).tr(),
       ),
       body: SafeArea(
           child: Padding(
@@ -147,23 +151,62 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: BottomNavigationBar(
         // iconSize: 28,
         // selectedFontSize: 18,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'home',
+            icon: Icon(Icons.wysiwyg),
+            label: tr(LocaleKeys.news),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.event),
-            label: 'Events',
+            label: tr(LocaleKeys.events_text),
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.info),
-            label: 'About us',
+            label: tr(LocaleKeys.about_us),
           ),
         ],
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
     );
+  }
+
+  Future<void> showLanguageDialoug() async {
+    switch (await showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return SimpleDialog(
+            title: const Text('Select Language'),
+            children: <Widget>[
+              SimpleDialogOption(
+                onPressed: () {
+                  setState(() {
+                    context.setLocale(Locale("en"));
+                  });
+                },
+                child: const Text(LocaleKeys.language_text_en).tr(),
+              ),
+              SimpleDialogOption(
+                onPressed: () {
+                  setState(() {
+                    context.setLocale(Locale("ar"));
+                  });
+                },
+                child: const Text(LocaleKeys.language_text_ar).tr(),
+              ),
+            ],
+          );
+        })) {
+      case Locale:
+        // Let's go.
+        // ...
+        break;
+      case Locale:
+        // ...
+        break;
+      case null:
+        // dialog dismissed
+        break;
+    }
   }
 }

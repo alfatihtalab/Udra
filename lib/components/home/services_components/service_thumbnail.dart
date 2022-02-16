@@ -15,6 +15,7 @@ class ServiceThumbnail extends StatelessWidget {
       onTap: onClick,
       child: Card(
         elevation: 4,
+        margin: EdgeInsets.all(12),
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(15))),
         child: Column(

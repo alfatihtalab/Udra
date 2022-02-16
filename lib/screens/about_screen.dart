@@ -1,6 +1,8 @@
 //import 'package:platform/platform.dart' as platform;
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hosham_app/generated/locale_keys.g.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -23,12 +25,12 @@ class _AboutPageState extends State<AboutPage> {
             // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Location:",
+                LocaleKeys.location,
                 style: GoogleFonts.jaldi(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
                     color: Colors.orange.shade800),
-              ),
+              ).tr(),
               SizedBox(
                 height: 10,
               ),
@@ -50,12 +52,12 @@ class _AboutPageState extends State<AboutPage> {
                 margin: EdgeInsets.only(bottom: 10),
               ),
               Text(
-                " About UDRA:",
+                LocaleKeys.about_udra,
                 style: GoogleFonts.jaldi(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
                     color: Colors.orange.shade800),
-              ),
+              ).tr(),
               SizedBox(
                 height: 8,
               ),
@@ -71,12 +73,12 @@ class _AboutPageState extends State<AboutPage> {
                 height: 10,
               ),
               Text(
-                " Contact us:",
+                LocaleKeys.contact_us,
                 style: GoogleFonts.jaldi(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
                     color: Colors.orange.shade800),
-              ),
+              ).tr(),
               SizedBox(
                 height: 10,
               ),

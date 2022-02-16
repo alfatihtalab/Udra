@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hosham_app/components/sub_service_card.dart';
 import 'package:flutter_hosham_app/models/udra_service.dart';
 
 class SubservicesListPage extends StatefulWidget {
@@ -30,32 +31,11 @@ class _SubservicesListPageState extends State<SubservicesListPage> {
         ),
       ),
       body: SafeArea(
-        child: ListView.builder(
+        child: GridView.builder(
             itemCount: service.list?.length ?? 1,
             itemBuilder: (context, index) {
               return service.list != null
-                  ? ListTile(
-                      onTap: () {
-                        const snackBar = SnackBar(
-                          behavior: SnackBarBehavior.floating,
-                          content: Text('Comming soon ...'),
-                          // action: SnackBarAction(
-                          //   label: 'Action',
-                          //   onPressed: () {},
-                          // ),
-                        );
-
-                        // Find the Scaffold in the widget tree and use
-                        // it to show a SnackBar.
-                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                      },
-                      title: Text(
-                        service.list![index].name,
-                        style: TextStyle(fontSize: 18),
-                      ),
-                      leading: Icon(Icons.label),
-                      //trailing: Text(service.list![index].name),
-                    )
+                  ? SubServiceCard()
                   : Container(
                       height: MediaQuery.of(context).size.width,
                       child: const Center(
@@ -66,8 +46,32 @@ class _SubservicesListPageState extends State<SubservicesListPage> {
                         ),
                       ),
                     );
-            }),
+            }, gridDelegate:  SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),),
       ),
     );
   }
 }
+//
+//
+// ListTile(
+// onTap: () {
+// const snackBar = SnackBar(
+// behavior: SnackBarBehavior.floating,
+// content: Text('Comming soon ...'),
+// // action: SnackBarAction(
+// //   label: 'Action',
+// //   onPressed: () {},
+// // ),
+// );
+//
+// // Find the Scaffold in the widget tree and use
+// // it to show a SnackBar.
+// ScaffoldMessenger.of(context).showSnackBar(snackBar);
+// },
+// title: Text(
+// service.list![index].name,
+// style: TextStyle(fontSize: 18),
+// ),
+// leading: Icon(Icons.label),
+// //trailing: Text(service.list![index].name),
+// )

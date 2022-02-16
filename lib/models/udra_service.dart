@@ -16,7 +16,12 @@ List<UdraService> studentList = [
   UdraService(name: "Staff deporation"),
   UdraService(name: "Health insurance"),
 ];
-
+List<UdraService> kidsList = [
+UdraService(name: "Kindergarten"),
+UdraService(name: "baby-sitter"),
+UdraService(name: "Online"),
+UdraService(name: "Home services"),
+];
 List<UdraService> generalList = [
   UdraService(name: "School"),
   UdraService(name: "Institute"),
@@ -38,14 +43,14 @@ List<UdraService> udraServicesList = [
   //     name: "Institute ", iconData: Icons.integration_instructions_outlined),
   //UdraService(name: "Universities ", iconData: Icons.domain_outlined),
   //UdraService(name: "Events ", iconData: Icons.event_available),
-  UdraService(name: "Advertisments ", iconData: Icons.library_books_outlined),
+  UdraService(name: "Kids ", iconData: Icons.emoji_emotions_sharp, list: kidsList),
   //UdraService(name: "Scholarship ", iconData: Icons.touch_app_rounded),
   //UdraService(name: "Organization ", iconData: Icons.explicit_rounded),
   //UdraService(name: "Teching ", iconData: Icons.edit_rounded),
   UdraService(name: "UDRA Cloud", iconData: Icons.architecture_rounded),
   UdraService(
       name: "Social\nresponsbility", iconData: Icons.architecture_rounded),
-  UdraService(name: "UDRA Events", iconData: Icons.architecture_rounded),
+  UdraService(name: "Specialist", iconData: Icons.architecture_rounded),
 ];
 
 enum ServiceType {

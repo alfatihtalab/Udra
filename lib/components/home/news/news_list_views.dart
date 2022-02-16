@@ -1,5 +1,7 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hosham_app/components/home/services_components/services_grid_view.dart';
+import 'package:flutter_hosham_app/generated/locale_keys.g.dart';
 import 'package:flutter_hosham_app/models/news.dart';
 
 import 'news_card.dart';
@@ -25,8 +27,8 @@ class NewsListView extends StatelessWidget {
       child: ListView(
         //crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // 5
-          Text('News 🍳', style: Theme.of(context).textTheme.headline2),
+          // 5 🍳
+          Text(LocaleKeys.ads_title, style: Theme.of(context).textTheme.headline2).tr(),
           // 6
           const SizedBox(height: 16),
           // 7
@@ -61,7 +63,7 @@ class NewsListView extends StatelessWidget {
           const SizedBox(height: 16),
           // 7
           Container(
-            height: MediaQuery.of(context).size.height / 2.4,
+            // height: MediaQuery.of(context).size.height / 2,
             width: MediaQuery.of(context).size.width,
             //height: 350,
             // TODO: Add ListView Here
