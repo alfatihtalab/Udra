@@ -1,10 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_hosham_app/components/cards/material_card.dart';
 import 'package:flutter_hosham_app/components/circular_image.dart';
 import 'package:flutter_hosham_app/components/home/news/news_list_views.dart';
+import 'package:flutter_hosham_app/controller/localization_controller.dart';
 import 'package:flutter_hosham_app/controller/theme_controller.dart';
-import 'package:flutter_hosham_app/generated/codegen_loader.g.dart';
 import 'package:flutter_hosham_app/generated/locale_keys.g.dart';
 import 'package:flutter_hosham_app/screens/about_screen.dart';
 import 'package:flutter_hosham_app/screens/auth/login.dart';
@@ -23,6 +24,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   late PageController _controller;
   late ThemeController themeController;
+  //late LocalizationController localizationController;
   late bool isDark;
   int _selectedIndex = 0;
 
@@ -188,9 +190,11 @@ class _HomePageState extends State<HomePage> {
               ),
               SimpleDialogOption(
                 onPressed: () {
-                  setState(() {
-                    context.setLocale(Locale("ar"));
-                  });
+                  //localizationController.changeLocal(context);
+                  // setState(() {
+                  //   //context.setLocale(Locale("ar"));
+                  //   //AndroidViewController.kAndroidLayoutDirectionRtl;
+                  // });
                 },
                 child: const Text(LocaleKeys.language_text_ar).tr(),
               ),

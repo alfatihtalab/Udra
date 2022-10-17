@@ -1,7 +1,7 @@
 /**
  * Automatically generated file. DO NOT MODIFY
  */
-package com.example.flutter_hosham_app;
+package com.example.udra_app;
 
 public final class BuildConfig {
   public static final boolean DEBUG = Boolean.parseBoolean("true");

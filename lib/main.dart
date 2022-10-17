@@ -12,10 +12,13 @@ import 'package:flutter_hosham_app/theme_app.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'controller/localization_controller.dart';
+
 late SharedPreferences preferences;
 late SharedPreferencesPersistence persistence;
 late UserController userController;
 late ThemeController themeController;
+late LocalizationController localizationController;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,10 +26,12 @@ void main() async {
   persistence = SharedPreferencesPersistence(preferences);
   userController = UserController(persistence);
   themeController = ThemeController(persistence);
+  localizationController = LocalizationController(persistence);
   themeController.getCurrentTheme();
   await EasyLocalization.ensureInitialized();
-  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
-      .then((value) => runApp(
+  // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+  //     .then((value) =>
+      runApp(
             EasyLocalization(
                 supportedLocales: const [Locale('en'), Locale('ar')],
                 path:
@@ -34,7 +39,7 @@ void main() async {
                 assetLoader: CodegenLoader(),
                 fallbackLocale: Locale('en'),
                 child: const MyApp()),
-          ));
+          );
 }
 
 class MyApp extends StatefulWidget {

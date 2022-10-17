@@ -1,4 +1,4 @@
-package com.example.flutter_hosham_app
+package com.udra.udra_app
 
 import io.flutter.embedding.android.FlutterActivity
 

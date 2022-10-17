@@ -35,7 +35,7 @@ class _SubservicesListPageState extends State<SubservicesListPage> {
             itemCount: service.list?.length ?? 1,
             itemBuilder: (context, index) {
               return service.list != null
-                  ? SubServiceCard()
+                  ? SubServiceCard(name:service.list![index].name ,)
                   : Container(
                       height: MediaQuery.of(context).size.width,
                       child: const Center(
